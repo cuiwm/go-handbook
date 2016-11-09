@@ -11,3 +11,36 @@ In a main package, flags SHOULD be defined and registered in the `main()` functi
 Libraries MUST NOT register flags in the global context or in the `init()` function. Since flags are registered in a global context, the user wouldn't be able to import two libraries that define a `-n` flag. Also, a user should be able to import a library without exposing its flags at all.
 
 Instead, libraries SHOULD expose a `RegisterFlags(*flag.FlagSet)` function that registers the flags on the passed FlagSet, or on the global one of `fs` is nil.
+
+### Examples
+```go
+package handbook
+
+import "flag"
+
+var kill *bool
+
+func RegisterFlags(fs *flag.FlagSet) {
+    if fs == nil {
+        fs = flag.CommandLine
+    }
+    kill = flag.Bool("kill", false, "violently enforce the handbook")
+}
+```
+
+```go
+package handbook
+
+import "flag"
+
+type Handbook struct {
+    kill *bool
+}
+
+func (h *Handbook) RegisterFlags(fs *flag.FlagSet) {
+    if fs == nil {
+        fs = flag.CommandLine
+    }
+    h.kill = flag.Bool("kill", false, "violently enforce the handbook")
+}
+```
