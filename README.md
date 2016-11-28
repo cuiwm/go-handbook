@@ -2,6 +2,12 @@
 
 A collection of Go style and code review notes.
 
+## go vet
+
+Run `go vet` as part of testing or building. All `go vet` errors MUST be considered as test/build failures and fixed, including false positives.
+
+Hellogopher will run `go vet` as part of `make test`, and fail on errors.
+
 ## Flags
 
 The flags package lends itself to a lot of misuse of global state.
