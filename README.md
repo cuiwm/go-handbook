@@ -2,6 +2,18 @@
 
 A collection of Go style and code review notes.
 
+## GOPATH / go get / Makefiles
+
+Projects SHOULD use [hellogopher](https://gist.github.com/FiloSottile/7e0cceb56d4c96ade45ca3deab2ae444) to be both `go get`-able and buildable with `make` from anywhere on the filesystem.
+
+Libraries MUST be `go get`-able.
+
+## Vendoring
+
+Use `gvt` or `glide`. DO check into git the entire `vendor/` folder for projects, DO NOT check in `vendor/` for libraries (but you're free to check in `vendor/manifest` if you like).
+
+See also the *Vendoring* section of the hellogopher README.
+
 ## go vet
 
 Run `go vet` as part of testing or building. All `go vet` errors MUST be considered as test/build failures and fixed, including false positives.
