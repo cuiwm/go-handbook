@@ -1,6 +1,8 @@
-# The Go Cloudflare Handbook
+# The Cloudflare Go Handbook
 
-A collection of Go style and code review notes.
+A collection of Go style, code review and project management notes.
+
+NOTE: this is still a very early work in progress.
 
 ## GOPATH / go get / Makefiles
 
