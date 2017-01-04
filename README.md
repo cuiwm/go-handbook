@@ -71,3 +71,7 @@ func (h *Handbook) RegisterFlags(fs *flag.FlagSet) {
     flag.BoolVar(&h.Kill, "kill", false, "violently enforce the handbook")
 }
 ```
+
+## Logging
+
+Projects SHOULD use the [stdlib logging package](https://golang.org/pkg/log/).
